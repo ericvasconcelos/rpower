@@ -36,9 +36,9 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('font', function() {
-  return gulp.src('./app/font/**/*')
-    .pipe(gulp.dest('./dist/font'));
+gulp.task('assets', function() {
+  return gulp.src('./app/assets/**/*')
+    .pipe(gulp.dest('./dist/assets'));
 });
 
 gulp.task('jsx', function () {
@@ -57,5 +57,5 @@ gulp.task('jsx', function () {
     .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('default', ['serve', 'html', 'font']);
+gulp.task('default', ['serve', 'html', 'assets']);
 

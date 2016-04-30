@@ -13,7 +13,3 @@ node_modules
 .gulp-scss-cache
 prod/
 dist
-.env
-oi.sublime-project
-oi.sublime-workspace
-manifest.json

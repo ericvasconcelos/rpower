@@ -1,27 +1,126 @@
-@import './font';
-@import './responsive';
+@import './config/config';
+@import './animate';
 
-body,
 html {
- 
+	position: relative;
+	min-height: 100%;
+	overflow-y: scroll;
+}
+	
+body {
+	background-color: $color__white;
+	font-family: arial, sans-serif;
+  font-weight: 300;
+  color: $color__black;
+  font-size: rem(16);
+  overflow: hidden;
 }
 
+#app {
+	padding-top: rem(100);
+}
+.container {
+	position: relative;	
+	height: 100%;
+  margin-left: rem(20);
+  margin-right: rem(20);
+  @include clearfix;
+  width: $grid__size__s;
 
+	@include media($media__m) {
+		width: $grid__size__m;
+		margin-left: auto;
+  	margin-right: auto;
+	}
 
+	@include media($media__l) {
+		width: $grid__size__l;
+	}
 
+	@include media($media__xl) {
+		width: $grid__size__xl;
+	}
+}
 
+.header {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: rem(100);
+	background-color: $color__black;
+}
+.header__logo {
+	float: left;
+	display: block;
+	height: rem(80);
+	width: rem(80);
+	margin-top: rem(10);
+	background-color: #ddd;
+	text-align: center;
+	line-height: rem(80);
+}
+.header__menu {
+	float: right;
+	display: block;
+	text-align: right;
+}
+.header__menu__item {
+	display: inline-block;
+	margin-right: rem(30);
+	line-height: rem(100);
+	color: $color__white;
+}
 
+.home {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(../assets/images/bg-home.jpg) no-repeat center center transparent;
+  background-size: cover;
+}
+.home__overlay {
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(../assets/images/bg-home-overlay.png);
+	background-attachment: fixed;
+}
+.home__title {
+	position: relative;
+	z-index: 1;
+	padding-top: 20vh;
+	font-size: rem(120);
+	color: $color__white;
+	text-align: center;
+}
+.home__subtitle {
+	position: relative;
+	z-index: 1;
+	font-size: rem(60);
+	color: $color__white;
+	text-align: center;
+}
 
+.who-we-are {
+	height: 600px;
+}
 
+.services {
+	height: 600px;
+}
 
+.projects {
+	height: 600px;
+}
 
+.clients {
+	height: 600px;
+}
 
-
-
-
-
-
-
-
-
-
+.contact {
+	height: 300px;
+}
