@@ -11,7 +11,7 @@ var gulp = require('gulp'),
   glob = require('glob');
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass', 'jsx'], function() {
+gulp.task('serve', ['sass', 'jsx', 'html'], function() {
 
   browserSync.init({
     server: './dist'
@@ -57,5 +57,5 @@ gulp.task('jsx', function () {
     .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('default', ['serve', 'html', 'assets']);
+gulp.task('default', ['serve', 'html']);
 

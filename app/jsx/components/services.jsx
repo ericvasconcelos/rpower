@@ -2,37 +2,48 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Title from './title';
 
 const Services = React.createClass({
 
-	_openService() {
-		console.log("open modal");
-	},
+  render() {
+    return (
+      <section id="services" className="section services">
+      	<div className="container">
+
+          <Title name="Serviços"/>
+
+          <div className="row">
+            <div className="col-4">
+              <ServicesItem icon="assets/images/city.svg" title="Predial"/>
+            </div>
+            <div className="col-4">
+              <ServicesItem icon="assets/images/factory.svg" title="Industriais"/>        
+            </div>
+            <div className="col-4">
+              <ServicesItem icon="assets/images/technology.svg" title="Sistemas Eletrônicos"/>
+            </div>
+          </div>
+
+      	</div>
+      </section>
+    )
+  }
+});
+
+
+const ServicesItem = React.createClass({
+
+  _openService() {
+    console.log("open modal");
+  },
 
   render() {
     return (
-      <div id="services" className="services">
-      	<div className="container">
-      		<nav>
-      			<a onClick={ this._openService } >
-      				<i>one</i>
-      				<h3>Service one</h3>
-      			</a>
-      			<a onClick={ this._openService } >
-      				<i>two</i>
-      				<h3>Service two</h3>
-      			</a>
-      			<a onClick={ this._openService } >
-      				<i>three</i>
-      				<h3>Service three</h3>
-      			</a>
-      			<a onClick={ this._openService } >
-      				<i>four</i>
-      				<h3>Service four</h3>
-      			</a>
-      		</nav>
-      	</div>
-      </div>
+      <a className="services__item" onClick={ this._openService } title={ this.props.title } >
+        <img className="services__item__img" src={ this.props.icon } alt={ this.props.title }/>
+        <h4 className="services__item__title">{ this.props.title }</h4>
+      </a>
     )
   }
 });

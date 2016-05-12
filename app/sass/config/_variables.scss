@@ -45,16 +45,13 @@ $size-s-positive-gap: rem(20);
 $size-m-positive-gap: calc((100vw - #{$grid__size__m}) /2);
 
 // Fonts
-$font__heading: 'oiTitle', sans-serif;
-$font__text--regular: 'oiTextRegular', sans-serif;
-$font__text--medium: 'oiTextMedium', sans-serif;
-$font__text--bold: 'oiTextBold', sans-serif;
-$font__text--light: 'oiTextLight', sans-serif;
+$font__title: 'Exo', sans-serif;
+$font__text: 'Roboto', sans-serif;
 
 // Colors
 $color__white: #ffffff;
 $color__black: #333;
-$color__yellow: #fe9905;
+$color__yellow: rgba(237, 205, 31, 1);
 
 // Forms
 $formPaddingVertical: 1.125rem;

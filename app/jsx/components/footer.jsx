@@ -2,15 +2,19 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Title from './title';
 
 const Footer = React.createClass({
   render() {
     return (
-      <div id="contact" className="contact">
+      <section id="contact" className="section contact">
       	<div className="container">
-      		<h2>Contato</h2>
+      		<Title name="Contato"/>
+      		<p>Entre em contato conosco e faça seu orçamento.</p>
+      		<p>Telefone e WhatsApp: +55 21 98989-98989</p>
+      		<p>E-mail: rpower@gmail.com</p>
       	</div>
-      </div>
+      </section>
     )
   }
 });

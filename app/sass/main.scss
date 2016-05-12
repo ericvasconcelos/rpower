@@ -1,6 +1,20 @@
 @import './config/config';
 @import './animate';
 
+.row {
+	@include row();
+}
+.col-3 {
+	@include span-columns(3);
+}
+.col-4 {
+	@include span-columns(4);
+}
+.col-6 {
+	@include span-columns(6);
+}
+
+
 html {
 	position: relative;
 	min-height: 100%;
@@ -12,12 +26,9 @@ body {
 	font-family: arial, sans-serif;
   font-weight: 300;
   color: $color__black;
+	font-family: $font__text;
   font-size: rem(16);
   overflow: hidden;
-}
-
-#app {
-	padding-top: rem(100);
 }
 .container {
 	position: relative;	
@@ -42,24 +53,54 @@ body {
 	}
 }
 
+.section {
+	margin-bottom: rem(100);
+}
+
+.title {
+	margin-bottom: rem(60);
+	font-size: rem(50);
+	font-family: $font__title;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-align: center;
+
+	&:after {
+		content: '';
+		display: block;
+		height: rem(8);
+		width: rem(100);
+		margin: rem(10) auto 0;
+		background-color: $color__yellow;
+	}
+}
+
+p {
+	font-size: rem(20);
+	font-weight: 300;
+}
+
+h4 {
+	font-size: rem(18);
+	font-weight: 700;
+}
+
 .header {
-	position: fixed;
-	z-index: 10;
-	top: 0;
-	left: 0;
 	width: 100%;
-	height: rem(100);
-	background-color: $color__black;
+	height: rem(130);
+	background-color: $color__white;
 }
 .header__logo {
 	float: left;
 	display: block;
-	height: rem(80);
-	width: rem(80);
+	width: rem(220);
 	margin-top: rem(10);
-	background-color: #ddd;
 	text-align: center;
 	line-height: rem(80);
+
+	img {
+		width: 100%;
+	}
 }
 .header__menu {
 	float: right;
@@ -70,7 +111,7 @@ body {
 	display: inline-block;
 	margin-right: rem(30);
 	line-height: rem(100);
-	color: $color__white;
+	color: $color__black;
 }
 
 .home {
@@ -105,22 +146,149 @@ body {
 	text-align: center;
 }
 
-.who-we-are {
-	height: 600px;
+.services__item__img {
+	display: block;
+	width: auto;
+	height: rem(160);
+	margin: 0 auto rem(30);
+}
+.services__item__title {
+	font-family: $font__title;
+	font-size: rem(28);
+	font-weight: 200;
+	text-align: center;
 }
 
-.services {
-	height: 600px;
+.projects__item {
+	position: relative;
+	width: 100%;
+	height: auto;
+  overflow: hidden;
+
+	&:hover {
+		.projects__item__img {
+			@include transform(scale(1.15));
+		}
+
+		.projects__item__mask {
+			opacity: 1;
+
+			&:before {
+				opacity: 1;
+				@include transform(scale(1));
+			}
+		}
+	}
+}
+.projects__item__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	@include transition(transform 0.35s);
+  @include transform(scale(1));
+}
+.projects__item__mask {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 0 rem(35);
+	opacity: 0;
+	background-color: rgba(255,255,255,0.9);
+	@include transition(all 345ms ease-in-out);
+	
+	&:before {
+		position: absolute;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    border: 1px solid #000;
+    content: '';
+    pointer-events: none;
+    opacity: 0;
+    @include transition(opacity 0.35s, transform 0.35s);
+    @include transform(scale(0));
+	}
+}
+.projects__item__mask--centered {
+	margin: 0;
+	text-align: center;
+}
+.projects__item__title {
+	margin-bottom: rem(10);
+	font-size: rem(20);
+	font-weight: 600;
+}
+.projects__item__description {
+	font-size: rem(16);
 }
 
-.projects {
-	height: 600px;
+
+.clients__nav {
+	display: block;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
 }
 
-.clients {
-	height: 600px;
+.clients__item {
+	display: inline-block;
+	margin: 0 rem(30);
+
+	&:hover .clients__item__img {
+		@include filter(grayscale(0));
+		@include transform(rotateY(360deg));
+	}
 }
 
-.contact {
-	height: 300px;
+.clients__item__img {
+	@include transition(all linear 0.55s);
+	@include filter(grayscale(100%));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,9 @@ const Header = React.createClass({
       <header className="header">
       	<div className="container">
 
-	      	<a className="header__logo" href={ this.state.home }>Logo</a>
+	      	<a className="header__logo" href={ this.state.home }>
+	      		<img src="assets/images/logo.svg" />	
+	      	</a>
 
 	      	<menu className="header__menu">
 	      		<a className="header__menu__item" href={ this.state.whoweare }>Quem Somos</a>
