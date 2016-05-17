@@ -34,17 +34,60 @@ const Services = React.createClass({
 
 const ServicesItem = React.createClass({
 
-  _openService() {
-    console.log("open modal");
+  mountPopup(idModal, titleModal, contentModal) {
+    ReactDOM.render(
+      <Popup 
+        id={ idModal } 
+        title={ titleModal } 
+        content={ contentModal } />, 
+      document.querySelector('#components'))
   },
 
   render() {
     return (
-      <a className="services__item" onClick={ this._openService } title={ this.props.title } >
+      <a className="services__item" 
+        onClick={ () => this.mountPopup('1', 'Modal Teste', 'Olha que legal uma content pra minha modal') } 
+        title={ this.props.title } 
+        href={ '#popup' + '1'} >
         <img className="services__item__img" src={ this.props.icon } alt={ this.props.title }/>
         <h4 className="services__item__title">{ this.props.title }</h4>
       </a>
     )
+  }
+});
+
+const Popup = React.createClass({
+
+  componentWillMount: function() {
+    console.log("will");
+  },
+
+  unmountPopup() {
+    ReactDOM.unmountComponentAtNode(document.querySelector('#components'));
+  },
+
+  render() {
+    const {
+      id, 
+      title, 
+      content
+    } = this.props;
+
+    return (
+      <div id={ 'popup' + id } className="overlay">
+        <div className="popup">
+          <a className="close" href="#" onClick={ this.unmountPopup } >&times;</a>
+          <h2>{ title }</h2>
+          <div className="content">
+            { content }
+          </div>
+        </div>
+      </div>
+    )
+  },
+
+  componentDidMount: function() {
+    console.log("did");
   }
 });
 

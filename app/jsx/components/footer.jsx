@@ -10,9 +10,9 @@ const Footer = React.createClass({
       <section id="contact" className="section contact">
       	<div className="container">
       		<Title name="Contato"/>
-      		<p>Entre em contato conosco e faça seu orçamento.</p>
-      		<p>Telefone e WhatsApp: +55 21 98989-98989</p>
-      		<p>E-mail: rpower@gmail.com</p>
+      		<p className="contact__paragraph">Entre em contato conosco e faça seu orçamento.</p>
+      		<p className="contact__paragraph">Telefone e WhatsApp: +55 21 98989-98989</p>
+      		<p className="contact__paragraph">E-mail: rpower@gmail.com</p>
       	</div>
       </section>
     )

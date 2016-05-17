@@ -20,6 +20,7 @@ gulp.task('serve', ['sass', 'jsx', 'html'], function() {
   gulp.watch('./app/jsx/**/*.jsx', ['jsx']);
   gulp.watch('./dist/js/bundle.js').on('change', browserSync.reload);
   gulp.watch('./app/sass/**/*.scss', ['sass']);
+  gulp.watch('./app/*.html', ['html']);
   gulp.watch('./dist/*.html').on('change', browserSync.reload);
 });
 
@@ -57,5 +58,5 @@ gulp.task('jsx', function () {
     .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('default', ['serve', 'html']);
+gulp.task('default', ['serve']);
 

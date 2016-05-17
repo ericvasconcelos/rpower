@@ -13,7 +13,12 @@
 .col-6 {
 	@include span-columns(6);
 }
-
+.col-8 {
+	@include span-columns(8);
+}
+.shift-2 {
+	@include shift(2);
+}
 
 html {
 	position: relative;
@@ -54,7 +59,7 @@ body {
 }
 
 .section {
-	margin-bottom: rem(100);
+	margin-bottom: rem(160);
 }
 
 .title {
@@ -76,16 +81,27 @@ body {
 }
 
 p {
+	margin-bottom: rem(30);
 	font-size: rem(20);
 	font-weight: 300;
+	line-height: rem(28);
 }
 
 h4 {
-	font-size: rem(18);
+	margin-bottom: rem(20);
+	font-size: rem(24);
 	font-weight: 700;
 }
 
+#app {
+	padding-top: rem(130);
+}
+
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
 	width: 100%;
 	height: rem(130);
 	background-color: $color__white;
@@ -105,19 +121,37 @@ h4 {
 .header__menu {
 	float: right;
 	display: block;
+	margin-top: rem(50);
 	text-align: right;
 }
 .header__menu__item {
 	display: inline-block;
 	margin-right: rem(30);
-	line-height: rem(100);
+	font-size: rem(20);
+	line-height: rem(30);
 	color: $color__black;
+	border-bottom: rem(2) solid transparent;
+
+	&::after {
+		content: '';
+		display: block;
+		width: rem(50);
+		height: rem(2);
+		margin: rem(2) auto 0;
+		background-color: transparent;
+		@include transition(background-color 0.35s ease-in-out);
+	}
+
+	&:hover::after {
+		background-color: $color__yellow;
+	} 
+
 }
 
 .home {
 	position: relative;
 	width: 100%;
-	height: 100vh;
+	height: 90vh;
 	background: url(../assets/images/bg-home.jpg) no-repeat center center transparent;
   background-size: cover;
 }
@@ -137,6 +171,8 @@ h4 {
 	font-size: rem(120);
 	color: $color__white;
 	text-align: center;
+	font-weight: 500;
+	text-transform: uppercase;
 }
 .home__subtitle {
 	position: relative;
@@ -146,6 +182,49 @@ h4 {
 	text-align: center;
 }
 
+
+/******************************************
+	WHO WE ARE
+*******************************************/
+.who-we-are {
+	text-align: center;
+}
+
+.who-we-are__list {
+	margin-bottom: rem(100);
+}
+
+.who-we-are__list__item {
+	display: inline-block;
+	margin: 0 rem(20);
+	padding: 0 rem(20);
+	border: rem(2) solid $color__yellow;
+	background-color: $color__yellow;
+	border-radius: rem(4);
+	color: $color__white;
+	font-size: rem(18);
+	font-weight: 400;
+	line-height: rem(28);
+	cursor: pointer;
+	@include transition(all 0.35s ease-in-out);
+
+	&:hover {
+		background-color: $color__white;
+		border: rem(2) solid $color__yellow;
+		color: $color__black;
+	}
+}
+
+.who-we-are__bg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+
+/******************************************
+	SERVICES
+*******************************************/
 .services__item__img {
 	display: block;
 	width: auto;
@@ -158,6 +237,11 @@ h4 {
 	font-weight: 200;
 	text-align: center;
 }
+
+
+/******************************************
+	PROJECTS
+*******************************************/
 
 .projects__item {
 	position: relative;
@@ -229,6 +313,9 @@ h4 {
 }
 
 
+/******************************************
+	CLIENTS
+*******************************************/
 .clients__nav {
 	display: block;
 	width: 100%;
@@ -253,8 +340,76 @@ h4 {
 
 
 
+/******************************************
+	CONTACT
+*******************************************/
+.contact__paragraph {
+	margin-bottom: rem(5);
+	font-family: $font__text;
+	font-size: rem(20);
+	font-weight: 300;
+	text-align: center;
+}
 
 
+/******************************************
+	POPUP
+*******************************************/
+
+.overlay {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+	position: absolute;
+	top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 60%;
+  height: 30%;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
 
 
 
