@@ -16,7 +16,8 @@ const Site = React.createClass({
 
   getInitialState() {
     return {
-      item: ""
+      item: "",
+      windowSize: window.innerWidth
     };
   },
 
@@ -24,19 +25,27 @@ const Site = React.createClass({
     
   },
 
+  _handleSize() {
+    this.setState({ windowSize: window.innerWidth });
+  },
+
+  componentDidMount() {
+    window.addEventListener("resize", this._handleSize);
+  },
+
   render() {
     return (
       <div>
-        <Header />
+        <Header windowSize={ this.state.windowSize } />
         <Home />
         <WhoWeAre />
         <Services />
-        <Projects />
+        <Projects windowSize={ this.state.windowSize } />
         <Clients />
         <Footer />
       </div>
     )
-  }
+  },
 
 });
 

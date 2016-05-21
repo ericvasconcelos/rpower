@@ -6,7 +6,42 @@ import Title from './title';
 
 const Services = React.createClass({
 
+  getInitialState() {
+    return {
+      'services': [
+        { 
+          title: 'Predial', 
+          icon: 'assets/images/city.svg',
+          modal: {
+            id: 1,
+            title: 'Modal Teste 1',
+            content: 'Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia.'
+          }
+        },
+        { 
+          title: 'Industriais', 
+          icon: 'assets/images/factory.svg',
+          modal: {
+            id: 2,
+            title: 'Modal Teste 2',
+            content: 'Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia.'
+          }
+        },
+        { 
+          title: 'Sistemas Eletrônicos', 
+          icon: 'assets/images/technology.svg',
+          modal: {
+            id: 3,
+            title: 'Modal Teste 3',
+            content: 'Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia.'
+          }
+        }
+      ]
+    }
+  },
+
   render() {
+    
     return (
       <section id="services" className="section services">
       	<div className="container">
@@ -14,15 +49,16 @@ const Services = React.createClass({
           <Title name="Serviços"/>
 
           <div className="row">
-            <div className="col-4">
-              <ServicesItem icon="assets/images/city.svg" title="Predial"/>
-            </div>
-            <div className="col-4">
-              <ServicesItem icon="assets/images/factory.svg" title="Industriais"/>        
-            </div>
-            <div className="col-4">
-              <ServicesItem icon="assets/images/technology.svg" title="Sistemas Eletrônicos"/>
-            </div>
+
+            {
+              this.state.services.map((service, i) => {
+                return (
+                  <div className="col-4" key={ i }>
+                    <ServicesItem icon={ service.icon } title={ service.title } modal={ service.modal }/>
+                  </div>
+                )
+              })
+            }
           </div>
 
       	</div>
@@ -44,13 +80,19 @@ const ServicesItem = React.createClass({
   },
 
   render() {
+    const {
+      title,
+      icon,
+      modal
+    } = this.props;
+
     return (
       <a className="services__item" 
-        onClick={ () => this.mountPopup('1', 'Modal Teste', 'Olha que legal uma content pra minha modal') } 
-        title={ this.props.title } 
-        href={ '#popup' + '1'} >
-        <img className="services__item__img" src={ this.props.icon } alt={ this.props.title }/>
-        <h4 className="services__item__title">{ this.props.title }</h4>
+        onClick={ () => this.mountPopup(modal.id, modal.title, modal.content) } 
+        title={ title } 
+        href={ '#popup' + modal.id} >
+        <img className="services__item__img" src={ icon } alt={ title }/>
+        <h4 className="services__item__title">{ title }</h4>
       </a>
     )
   }
@@ -58,12 +100,11 @@ const ServicesItem = React.createClass({
 
 const Popup = React.createClass({
 
-  componentWillMount: function() {
-    console.log("will");
-  },
-
   unmountPopup() {
-    ReactDOM.unmountComponentAtNode(document.querySelector('#components'));
+    ReactDOM.findDOMNode(this).classList.remove('overlay--open');
+    window.setTimeout(() => {
+      ReactDOM.unmountComponentAtNode(document.querySelector('#components'));
+    }, 500);
   },
 
   render() {
@@ -76,18 +117,18 @@ const Popup = React.createClass({
     return (
       <div id={ 'popup' + id } className="overlay">
         <div className="popup">
-          <a className="close" href="#" onClick={ this.unmountPopup } >&times;</a>
-          <h2>{ title }</h2>
-          <div className="content">
-            { content }
-          </div>
+          <a className="popup__close" onClick={ this.unmountPopup } >&times;</a>
+          <h2 className="popup__title">{ title }</h2>
+          <div className="popup__content" dangerouslySetInnerHTML={{__html: content}}></div>
         </div>
       </div>
     )
   },
 
-  componentDidMount: function() {
-    console.log("did");
+  componentDidMount() {
+    window.setTimeout(() => {
+      ReactDOM.findDOMNode(this).classList.add('overlay--open');
+    }, 1);
   }
 });
 

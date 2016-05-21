@@ -5,38 +5,79 @@ import ReactDOM from 'react-dom';
 
 const Header = React.createClass({
 
+	_animateScrollHeader(event) {
+
+		let href = event.currentTarget.getAttribute('data-ref'),
+			doc = document,
+			element = doc.body,
+			to = Math.round(doc.querySelector(href).getBoundingClientRect().top + element.scrollTop),
+			duration = 600;
+
+		function scrollTo(element, to, duration) {
+		  if (duration <= 0) return;
+		  var difference = (to - element.scrollTop) - 174;
+		  var perTick = difference / duration * 10;
+
+		  setTimeout(function() {
+		    element.scrollTop = element.scrollTop + perTick;
+		    if (element.scrollTop == to) return;
+		    scrollTo(element, to, duration - 10);
+		  }, 10);
+		}
+
+		scrollTo(element, to, duration);
+
+		return false;
+	},
+
 	getInitialState() {
 		return {
-			"home": "/",
-			"whoweare": "#who-we-are",
-			"services": "#services",
-			"projects": "#projects",
-			"clients": "#clients",
-			"contact": "#contact"
+			windowSize: this.props.windowSize,
+			menuItems: [
+				{ link: '#who-we-are', text: 'Quem Somos' },
+				{ link: '#services', text: 'Serviços' },
+				{ link: '#projects', text: 'Projetos' },
+				{ link: '#clients', text: 'Clientes' },
+				{ link: '#contact', text: 'Contato' }
+			]
 		}
 	},
 
   render() {
-    return (
+		return (
       <header className="header">
       	<div className="container">
 
-	      	<a className="header__logo" href={ this.state.home }>
+	      	<a className="header__logo" data-ref="#home" onClick={ this._animateScrollHeader }>
 	      		<img src="assets/images/logo.svg" />	
 	      	</a>
 
 	      	<menu className="header__menu">
-	      		<a className="header__menu__item" href={ this.state.whoweare }>Quem Somos</a>
-	      		<a className="header__menu__item" href={ this.state.services }>Serviços</a>
-	      		<a className="header__menu__item" href={ this.state.projects }>Projetos</a>
-	      		<a className="header__menu__item" href={ this.state.clients }>Clientes</a>
-	      		<a className="header__menu__item" href={ this.state.contact }>Contato</a>
+		      	{ 
+		      		this.state.windowSize > 1200 ?
+			      		this.state.menuItems.map((item, i) => {
+			      			return <MenuItem
+			      				key={ i }
+			      				href={ item.link }
+			      				handler={ this._animateScrollHeader }>{ item.text }</MenuItem>
+			      		}) : ''
+	      		} 
 	      	</menu>
 
       	</div>
       </header>
     )
+  },
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ windowSize: nextProps.windowSize });
   }
 });
+
+const MenuItem = React.createClass({
+	render() {
+    return <a className="header__menu__item" data-ref={ this.props.href } onClick={ this.props.handler }>{ this.props.children }</a>
+  }
+})
 
 export default Header;

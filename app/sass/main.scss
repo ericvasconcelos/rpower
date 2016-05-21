@@ -4,20 +4,45 @@
 .row {
 	@include row();
 }
+
 .col-3 {
-	@include span-columns(3);
+	@include span-columns(12);
+
+	@include media($media__m) {
+		@include span-columns(6);
+	}
+
+	@include media($media__l) {
+		@include span-columns(3);
+	}
 }
 .col-4 {
-	@include span-columns(4);
+	@include span-columns(12);
+
+	@include media($media__m) {
+		@include span-columns(4);
+	}
 }
 .col-6 {
 	@include span-columns(6);
+
+	@include media($media__l) {
+		
+	}
 }
 .col-8 {
-	@include span-columns(8);
+	@include span-columns(12);
+
+	@include media($media__l) {
+		@include span-columns(8);
+	}
 }
 .shift-2 {
-	@include shift(2);
+	@include shift(0);
+
+	@include media($media__l) {
+		@include shift(2);
+	}
 }
 
 html {
@@ -41,7 +66,7 @@ body {
   margin-left: rem(20);
   margin-right: rem(20);
   @include clearfix;
-  width: $grid__size__s;
+  width: auto;
 
 	@include media($media__m) {
 		width: $grid__size__m;
@@ -64,7 +89,7 @@ body {
 
 .title {
 	margin-bottom: rem(60);
-	font-size: rem(50);
+	font-size: rem(45);
 	font-family: $font__title;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -73,7 +98,7 @@ body {
 	&:after {
 		content: '';
 		display: block;
-		height: rem(8);
+		height: rem(7);
 		width: rem(100);
 		margin: rem(10) auto 0;
 		background-color: $color__yellow;
@@ -94,7 +119,7 @@ h4 {
 }
 
 #app {
-	padding-top: rem(130);
+	padding-top: rem(90);
 }
 
 .header {
@@ -103,25 +128,28 @@ h4 {
 	left: 0;
 	z-index: 2;
 	width: 100%;
-	height: rem(130);
+	height: rem(90);
 	background-color: $color__white;
+	border-bottom: rem(1) solid $color__gray;
 }
 .header__logo {
 	float: left;
 	display: block;
-	width: rem(220);
+	width: auto;
+	height: rem(70);
 	margin-top: rem(10);
 	text-align: center;
 	line-height: rem(80);
 
 	img {
-		width: 100%;
+		width: auto;
+		height: 100%;
 	}
 }
 .header__menu {
 	float: right;
 	display: block;
-	margin-top: rem(50);
+	margin-top: rem(30);
 	text-align: right;
 }
 .header__menu__item {
@@ -196,13 +224,13 @@ h4 {
 
 .who-we-are__list__item {
 	display: inline-block;
-	margin: 0 rem(20);
+	margin: 0 rem(10) rem(15);
 	padding: 0 rem(20);
 	border: rem(2) solid $color__yellow;
 	background-color: $color__yellow;
 	border-radius: rem(4);
 	color: $color__white;
-	font-size: rem(18);
+	font-size: rem(16);
 	font-weight: 400;
 	line-height: rem(28);
 	cursor: pointer;
@@ -212,6 +240,11 @@ h4 {
 		background-color: $color__white;
 		border: rem(2) solid $color__yellow;
 		color: $color__black;
+	}
+
+	@include media($media__xl) {
+		margin: 0 rem(20);
+		font-size: rem(18);
 	}
 }
 
@@ -225,6 +258,29 @@ h4 {
 /******************************************
 	SERVICES
 *******************************************/
+.services__item {
+	display: block;
+	text-decoration: none;
+	@include clearfix;
+	margin-bottom: rem(60);
+
+	&:hover {
+		.services__item__title{
+			color: $color__yellow;
+		}
+	}
+
+	&:link,
+	&:active {
+		.services__item__title {
+			color: $color__black;
+		}	
+	}
+
+	@include media($media__m) {
+		margin-bottom: 0;
+	}
+}
 .services__item__img {
 	display: block;
 	width: auto;
@@ -232,10 +288,12 @@ h4 {
 	margin: 0 auto rem(30);
 }
 .services__item__title {
+	color: $color__black;
 	font-family: $font__title;
 	font-size: rem(28);
 	font-weight: 200;
 	text-align: center;
+	@include transition(color 0.35s ease-in-out);
 }
 
 
@@ -248,6 +306,7 @@ h4 {
 	width: 100%;
 	height: auto;
   overflow: hidden;
+  margin-bottom: rem(20);
 
 	&:hover {
 		.projects__item__img {
@@ -262,6 +321,10 @@ h4 {
 				@include transform(scale(1));
 			}
 		}
+	}
+
+	@include media($media__l) {
+		margin-bottom: 0;
 	}
 }
 .projects__item__img {
@@ -309,7 +372,9 @@ h4 {
 	font-weight: 600;
 }
 .projects__item__description {
+	margin-bottom: 0;
 	font-size: rem(16);
+	line-height: rem(20);
 }
 
 
@@ -355,7 +420,6 @@ h4 {
 /******************************************
 	POPUP
 *******************************************/
-
 .overlay {
   position: fixed;
   z-index: 3;
@@ -364,12 +428,13 @@ h4 {
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
+  transition: opacity 500ms linear;
   visibility: hidden;
   opacity: 0;
 }
-.overlay:target {
-  visibility: visible;
+
+.overlay--open {
+	visibility: visible;
   opacity: 1;
 }
 
@@ -384,31 +449,40 @@ h4 {
   background: #fff;
   border-radius: 5px;
   width: 60%;
-  height: 30%;
-  transition: all 5s ease-in-out;
+  min-height: 50%;
+  max-height: 60%;
+  overflow: hidden;
+  @include transition(all 5s ease-in-out);
 }
 
-.popup h2 {
-  margin-top: 0;
+.popup__title {
+  margin: rem(10) 0 rem(20) 0;
   color: #333;
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: $font__title;
+  font-size: rem(28);
+  font-weight: 600;
+  text-align: center;
 }
-.popup .close {
+.popup__close {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
+  top: rem(15);
+  right: rem(20);
+  font-size: rem(40);
+  font-weight: 700;
   text-decoration: none;
   color: #333;
+  @include transition(color 0.2s ease-in-out);
 }
-.popup .close:hover {
-  color: #06D85F;
+.popup__close:hover {
+  color: $color__yellow;
 }
-.popup .content {
-  max-height: 30%;
+.popup__content {
+	font-family: $font__text;
+  height: 80%;
   overflow: auto;
+  font-size: rem(20);
+	font-weight: 300;
+	line-height: rem(28);
 }
 
 
