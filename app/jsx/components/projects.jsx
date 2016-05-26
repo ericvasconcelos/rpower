@@ -68,6 +68,12 @@ const Projects = React.createClass({
 
 
 const ProjectsItem = React.createClass({
+  propTypes: { 
+    title: React.PropTypes.bool,
+    description: React.PropTypes.string,
+    img: React.PropTypes.string
+  },
+
   render() {
     const {
       title,
@@ -88,7 +94,5 @@ const ProjectsItem = React.createClass({
     )
   }
 });
-
-
 
 export default Projects;

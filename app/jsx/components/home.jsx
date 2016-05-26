@@ -9,8 +9,8 @@ const Home = React.createClass({
       <section id="home" className="section home">
       	<div className="home__overlay"></div>
 
-      	<h1 className="home__title animated fadeInDown">Rpower</h1>
-      	<h2 className="home__subtitle delayOne animated fadeInUp">Electrical Engineering</h2>
+      	<h1 className="home__title animated fadeInDown">Nós criamos os melhores projetos</h1>
+      	<h2 className="home__subtitle delayOne animated fadeInUp">Nós entregamos os melhores serviços</h2>
       </section>
     )
   }

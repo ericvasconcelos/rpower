@@ -40,7 +40,6 @@ const Site = React.createClass({
         <Home />
         <WhoWeAre />
         <Services />
-        <Projects windowSize={ this.state.windowSize } />
         <Clients />
         <Footer />
       </div>

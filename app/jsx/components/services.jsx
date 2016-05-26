@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Title from './title';
 
@@ -10,30 +10,91 @@ const Services = React.createClass({
     return {
       'services': [
         { 
-          title: 'Predial', 
-          icon: 'assets/images/city.svg',
+          title: 'Projetos Elétricos', 
+          icon: 'assets/images/plan.svg',
           modal: {
             id: 1,
-            title: 'Modal Teste 1',
-            content: 'Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia.'
+            title: 'Projetos Elétricos',
+            content: [
+              'Instalações prediais, comerciais e industriais.',
+              'Entrada de energia em baixa e média tensão.',
+              'Aterramento e equipotencialização.',
+              'Sistema de proteção contra descargas atmosféricas.',
+              'Adequação para aumento de carga e tramitação com a concessionária local.',
+              'Luminotécnica.',
+              'Sinalização.',
+              'Acionamento e comando de máquinas e equipamentos.',
+              'Correção de fator de potência.',
+              'Instalações elétricas para áreas classificadas.'
+            ]
           }
         },
         { 
-          title: 'Industriais', 
-          icon: 'assets/images/factory.svg',
+          title: 'Projetos com cabeamento estruturado', 
+          icon: 'assets/images/networking-cable.svg',
           modal: {
             id: 2,
-            title: 'Modal Teste 2',
-            content: 'Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia.'
+            title: 'Projetos com cabeamento estruturado', 
+            content: [
+              'Automação residencial cabeada e sem fio.',
+              'Automação predial cabeada.',
+              'Automação industrial.'
+            ]
           }
         },
         { 
-          title: 'Sistemas Eletrônicos', 
-          icon: 'assets/images/technology.svg',
+          title: 'Automação', 
+          icon: 'assets/images/tablet.svg',
           modal: {
             id: 3,
-            title: 'Modal Teste 3',
-            content: 'Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia. Olha que legal uma content pra minha modal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deserunt, in corrupti error molestiae explicabo non cupiditate quo harum ipsum ut tenetur minima nam cumque aperiam placeat. Deleniti libero, quia.'
+            title: 'Automação', 
+            content: [
+              'Sistema de dados.',
+              'Sistema de voz.',
+              'CFTV.'
+            ]
+          }
+        },
+        { 
+          title: 'Eficiência energética', 
+          icon: 'assets/images/line-chart.svg',
+          modal: {
+            id: 4,
+            title: 'Eficiência energética', 
+            content: [
+              'Análise de instalação existente.',
+              'Estudos para novos projetos.',
+              'Integração com novas tecnologias.'
+            ]
+          }
+        },
+        { 
+          title: 'Serviços de instalação', 
+          icon: 'assets/images/working-man.svg',
+          modal: {
+            id: 5,
+            title: 'Serviços de instalação', 
+            content: [
+              'Serviços de instalação elétrica predial.',
+              'Serviços de instalação elétrica comercial.',
+              'Serviços de instalação de máquinas e equipamentos.'
+            ]
+          }
+        },
+        { 
+          title: 'Outros serviços', 
+          icon: 'assets/images/report.svg',
+          modal: {
+            id: 6,
+            title: 'Outros serviços', 
+            content: [
+              'Vistoria.',
+              'Consultoria.',
+              'Laudo técnico.',
+              'Parecer técnico.',
+              'Perícia.',
+              'Estudo de viabilidade técnica e econômica.'
+            ]
           }
         }
       ]
@@ -49,7 +110,6 @@ const Services = React.createClass({
           <Title name="Serviços"/>
 
           <div className="row">
-
             {
               this.state.services.map((service, i) => {
                 return (
@@ -69,6 +129,12 @@ const Services = React.createClass({
 
 
 const ServicesItem = React.createClass({
+
+  propTypes: {
+    title: React.PropTypes.string,
+    icon: React.PropTypes.string,
+    modal: React.PropTypes.object
+  },
 
   mountPopup(idModal, titleModal, contentModal) {
     ReactDOM.render(
@@ -100,6 +166,12 @@ const ServicesItem = React.createClass({
 
 const Popup = React.createClass({
 
+  propTypes: {
+    id: React.PropTypes.number,
+    title: React.PropTypes.string,
+    content: React.PropTypes.array.isRequired
+  },
+
   unmountPopup() {
     ReactDOM.findDOMNode(this).classList.remove('overlay--open');
     window.setTimeout(() => {
@@ -119,7 +191,17 @@ const Popup = React.createClass({
         <div className="popup">
           <a className="popup__close" onClick={ this.unmountPopup } >&times;</a>
           <h2 className="popup__title">{ title }</h2>
-          <div className="popup__content" dangerouslySetInnerHTML={{__html: content}}></div>
+          <div className="popup__content">
+            <ul className="popup__content__list">
+              {
+                content.map((item, i) => {
+                  return (
+                    <li className="popup__content__list__item" key={ i }>{ item }</li>
+                  );
+                })
+              }
+            </ul>
+          </div>
         </div>
       </div>
     )

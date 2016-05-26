@@ -8,7 +8,11 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   sass = require('gulp-sass'),
   browserSync = require('browser-sync').create(),
-  glob = require('glob');
+  glob = require('glob'),
+  minifyHTML = require('gulp-htmlmin'),
+  minifyCss = require('gulp-clean-css'),
+  uglify = require('gulp-uglify'),
+  buffer = require('vinyl-buffer');
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass', 'jsx', 'html'], function() {
@@ -28,12 +32,14 @@ gulp.task('sass', function() {
   return gulp.src('./app/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('main.css')) 
+    .pipe(minifyCss({ compatibility: 'ie8' }))
     .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('html', function() {
   return gulp.src('./app/index.html')
+    .pipe(minifyHTML({ collapseWhitespace: true }))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -55,6 +61,8 @@ gulp.task('jsx', function () {
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(plumber())
+    .pipe(buffer())
+    .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 });
 

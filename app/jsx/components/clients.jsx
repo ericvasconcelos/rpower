@@ -5,6 +5,38 @@ import ReactDOM from 'react-dom';
 import Title from './title';
 
 const Clients = React.createClass({
+  getInitialState() {
+    return {
+      clients: [
+        {
+          title: 'Ampla',
+          img: '/assets/images/logo-ampla.png',
+          link: 'https://www.ampla.com/'
+        },
+        {
+          title: 'Petrobras',
+          img: '/assets/images/logo-petrobras.png',
+          link: 'http://www.petrobras.com.br/'
+        },
+        {
+          title: 'Light',
+          img: '/assets/images/logo-light.png',
+          link: 'http://www.light.com.br/'
+        },
+        {
+          title: 'Isadora Cabral Arquitetura',
+          img: '/assets/images/logo-isadora-cabral-arquitetura.png',
+          link: 'http://isadoracabralarquitetura.com.br/'
+        },
+        {
+          title: 'GINBRAS',
+          img: '/assets/images/logo-ginbras.png',
+          link: 'http://ginbras.com.br/'
+        },
+      ]
+    }
+  },
+
   render() {
     return (
       <section id="clients" className="section clients">
@@ -12,11 +44,14 @@ const Clients = React.createClass({
       		<Title name="Clientes"/>
 
       		<nav className="clients__nav">
-      			<ClientsItem img="assets/images/cliente1.png" />
-      			<ClientsItem img="assets/images/cliente2.png" />
-      			<ClientsItem img="assets/images/cliente3.png" />
-      			<ClientsItem img="assets/images/cliente4.png" />
-      			<ClientsItem img="assets/images/cliente5.png" />
+
+            {
+              this.state.clients.map((client, i) => {
+                return (
+                  <ClientsItem img={ client.img } link={ client.link } key={ i } />
+                )
+              })
+            }
       		</nav>
       	</div>
       </section>
@@ -26,34 +61,32 @@ const Clients = React.createClass({
 
 const ClientsItem = React.createClass({
 
-	propTypes: {
+  propTypes: { 
+    link: React.PropTypes.string,
+    title: React.PropTypes.string,
+    img: React.PropTypes.string
+  },
 
-	},
-
-	getDefaultProps() {
+  getDefaultProps() {
     return {
-      
-    };
+      link: '#',
+      title: 'Cliente'
+    }
   },
 
   render() {
+    const {
+      title,
+      link,
+      img
+    } = this.props;
+    
     return (
-      <a className="clients__item" href={ this.props.link } title={ this.props.title } >
-        <img className="clients__item__img" src={ this.props.img } alt={ this.props.title }/>
+      <a className="clients__item" href={ link } title={ title } target="_blank" >
+        <img className="clients__item__img" src={ img } alt={ title }/>
       </a>
     )
   }
 });
-
-ClientsItem.propTypes = { 
-	link: React.PropTypes.string,
-	title: React.PropTypes.string,
-	img: React.PropTypes.string
-};
-
-ClientsItem.defaultProps = { 
-	link: '#',
-  title: 'Cliente'
-};
 
 export default Clients;
