@@ -501,13 +501,8 @@ h4 {
 .clients__item {
 	display: inline-block;
 	vertical-align: middle;
-	width: 25%;
-	margin: 0 4% rem(40);
-
-	@include media($media__m) {
-		width: 16%;
-		margin: 0 2%;
-	}
+	width: 145px;
+	margin: 0 rem(40) rem(40);
 
 	&:hover .clients__item__img {
 		@include filter(grayscale(0));
@@ -518,8 +513,7 @@ h4 {
 .clients__item__img {
 	@include transition(all linear 0.55s);
 	@include filter(grayscale(100%));
-	width: 100%;
-	max-width: 145px;
+	max-width: 100%;
 	height: auto;
 }
 

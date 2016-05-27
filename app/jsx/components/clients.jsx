@@ -20,27 +20,27 @@ const Clients = React.createClass({
         },
         {
           title: 'ADKL',
-          img: '',
+          img: '/assets/images/logo-adkl.png',
           link: 'http://www.adkl.com.br/'
         },
         {
           title: 'HOPE',
-          img: '',
+          img: '/assets/images/logo-hope.png',
           link: 'http://www.hopeservicos.com.br/'
         },
         {
           title: 'STIL',
-          img: '',
+          img: '/assets/images/logo-stil.png',
           link: 'http://www.stilrj.com.br/'
         },
         {
           title: 'ONS',
-          img: '',
+          img: '/assets/images/logo-ons.png',
           link: 'http://www.ons.org.br/'
         },
         {
           title: 'OTZ',
-          img: '',
+          img: '/assets/images/logo-otz.png',
           link: 'http://www.otzengenharia.com/'
         }
 
