@@ -15,6 +15,7 @@
     "event-stream": "^3.3.2",
     "glob": "^7.0.3",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.8",
     "gulp-concat": "^2.6.0",
     "gulp-htmlmin": "^2.0.0",

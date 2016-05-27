@@ -12,7 +12,8 @@ var gulp = require('gulp'),
   minifyHTML = require('gulp-htmlmin'),
   minifyCss = require('gulp-clean-css'),
   uglify = require('gulp-uglify'),
-  buffer = require('vinyl-buffer');
+  buffer = require('vinyl-buffer'),
+  clean = require('gulp-clean');
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass', 'jsx', 'html'], function() {
@@ -43,7 +44,12 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('assets', function() {
+gulp.task('clean', function () {
+  return gulp.src('./dist/assets')
+    .pipe(clean());
+});
+
+gulp.task('assets', ['clean'], function() {
   return gulp.src('./app/assets/**/*')
     .pipe(gulp.dest('./dist/assets'));
 });

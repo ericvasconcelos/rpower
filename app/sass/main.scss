@@ -361,18 +361,12 @@ h4 {
 	text-decoration: none;
 	@include clearfix;
 	margin-bottom: rem(60);
+	color: $color__black;
 
 	&:hover {
 		.services__item__title{
 			color: $color__yellow;
 		}
-	}
-
-	&:link,
-	&:active {
-		.services__item__title {
-			color: $color__black;
-		}	
 	}
 }
 

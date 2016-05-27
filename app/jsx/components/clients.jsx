@@ -9,19 +9,9 @@ const Clients = React.createClass({
     return {
       clients: [
         {
-          title: 'Ampla',
-          img: '/assets/images/logo-ampla.png',
-          link: 'https://www.ampla.com/'
-        },
-        {
           title: 'Petrobras',
           img: '/assets/images/logo-petrobras.png',
           link: 'http://www.petrobras.com.br/'
-        },
-        {
-          title: 'Light',
-          img: '/assets/images/logo-light.png',
-          link: 'http://www.light.com.br/'
         },
         {
           title: 'Isadora Cabral Arquitetura',
@@ -29,10 +19,31 @@ const Clients = React.createClass({
           link: 'http://isadoracabralarquitetura.com.br/'
         },
         {
-          title: 'GINBRAS',
-          img: '/assets/images/logo-ginbras.png',
-          link: 'http://ginbras.com.br/'
+          title: 'ADKL',
+          img: '',
+          link: 'http://www.adkl.com.br/'
         },
+        {
+          title: 'HOPE',
+          img: '',
+          link: 'http://www.hopeservicos.com.br/'
+        },
+        {
+          title: 'STIL',
+          img: '',
+          link: 'http://www.stilrj.com.br/'
+        },
+        {
+          title: 'ONS',
+          img: '',
+          link: 'http://www.ons.org.br/'
+        },
+        {
+          title: 'OTZ',
+          img: '',
+          link: 'http://www.otzengenharia.com/'
+        }
+
       ]
     }
   },

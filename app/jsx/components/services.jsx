@@ -36,9 +36,9 @@ const Services = React.createClass({
             id: 2,
             title: 'Projetos com cabeamento estruturado', 
             content: [
-              'Automação residencial cabeada e sem fio.',
-              'Automação predial cabeada.',
-              'Automação industrial.'
+              'Sistema de dados.',
+              'Sistema de voz.',
+              'CFTV.'
             ]
           }
         },
@@ -49,9 +49,9 @@ const Services = React.createClass({
             id: 3,
             title: 'Automação', 
             content: [
-              'Sistema de dados.',
-              'Sistema de voz.',
-              'CFTV.'
+              'Automação residencial cabeada e sem fio.',
+              'Automação predial cabeada.',
+              'Automação industrial.'
             ]
           }
         },
