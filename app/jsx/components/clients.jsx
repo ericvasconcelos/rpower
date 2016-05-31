@@ -7,44 +7,7 @@ import Title from './title';
 const Clients = React.createClass({
   getInitialState() {
     return {
-      clients: [
-        {
-          title: 'Petrobras',
-          img: '/assets/images/logo-petrobras.png',
-          link: 'http://www.petrobras.com.br/'
-        },
-        {
-          title: 'Isadora Cabral Arquitetura',
-          img: '/assets/images/logo-isadora-cabral-arquitetura.png',
-          link: 'http://isadoracabralarquitetura.com.br/'
-        },
-        {
-          title: 'ADKL',
-          img: '/assets/images/logo-adkl.png',
-          link: 'http://www.adkl.com.br/'
-        },
-        {
-          title: 'HOPE',
-          img: '/assets/images/logo-hope.png',
-          link: 'http://www.hopeservicos.com.br/'
-        },
-        {
-          title: 'STIL',
-          img: '/assets/images/logo-stil.png',
-          link: 'http://www.stilrj.com.br/'
-        },
-        {
-          title: 'ONS',
-          img: '/assets/images/logo-ons.png',
-          link: 'http://www.ons.org.br/'
-        },
-        {
-          title: 'OTZ',
-          img: '/assets/images/logo-otz.png',
-          link: 'http://www.otzengenharia.com/'
-        }
-
-      ]
+      clients: this.props.content
     }
   },
 

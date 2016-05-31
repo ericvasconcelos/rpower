@@ -6,13 +6,15 @@ import Title from './title';
 
 const Footer = React.createClass({
   render() {
+    const { content } = this.props
+
     return (
       <section id="contact" className="section contact">
       	<div className="container">
       		<Title name="Contato"/>
-      		<p className="contact__paragraph">Entre em contato conosco e faça seu orçamento.</p>
-      		<p className="contact__paragraph">Telefone: +55 21 97262-3355</p>
-      		<p className="contact__paragraph">E-mail: contato@rpower.com.br</p>
+          { content.map((item, i) => {
+            return <p className="contact__paragraph" key={ i }>{ item }</p>;
+          }) }
       	</div>
       </section>
     )

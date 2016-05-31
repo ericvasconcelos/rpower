@@ -1,0 +1,158 @@
+{
+	"header": {
+		"menuItems": [
+			{ "link": "#who-we-are", "text": "Quem Somos" },
+			{ "link": "#services", "text": "Serviços" },
+			{ "link": "#clients", "text": "Clientes" },
+			{ "link": "#contact", "text": "Contato" }
+		]
+	},
+	"home": {
+		"title": "Nós criamos os melhores projetos",
+		"subtitle": "Nós entregamos os melhores serviços"
+	},
+	"whoWeAre": {
+		"content": "A RPOWER é uma empresa que atua no segmento de engenharia e serviços de instalação. O seu portfólio promove soluções diversas na área de elétrica, o que engloba: projetos, serviços de instalação, reformas, estudos, entre outras atividades. A empresa possui profissionais com experiência de mercado de longa data e atua dentro dos critérios estabelecidos pelo CONFEA, Ministério do Trabalho e ABNT.",
+		"mission": "Ser uma empresa que forneça nos seus serviços segurança, qualidade, ética e sustentabilidade.",
+		"vision": "Ser uma empresa conceituada no setor de engenharia e serviços de instalação elétrica a nível nacional.",
+		"values": [
+			"Segurança",
+			"Qualidade",
+			"Ética",
+			"Sustentabilidade"
+		]
+	},
+	"services": [
+    { 
+	    "title": "Projetos Elétricos", 
+	    "icon": "assets/images/plan.svg",
+	    "modal": {
+	      "id": 1,
+	      "title": "Projetos Elétricos",
+	      "content": [
+	        "Instalações prediais, comerciais e industriais.",
+	        "Entrada de energia em baixa e média tensão.",
+	        "Aterramento e equipotencialização.",
+	        "Sistema de proteção contra descargas atmosféricas.",
+	        "Adequação para aumento de carga e tramitação com a concessionária local.",
+	        "Luminotécnica.",
+	        "Sinalização.",
+	        "Acionamento e comando de máquinas e equipamentos.",
+	        "Correção de fator de potência.",
+	        "Instalações elétricas para áreas classificadas."
+	      ]
+	    }
+	  },
+	  { 
+	    "title": "Projetos com cabeamento estruturado", 
+	    "icon": "assets/images/networking-cable.svg",
+	    "modal": {
+	      "id": 2,
+	      "title": "Projetos com cabeamento estruturado", 
+	      "content": [
+	        "Sistema de dados.",
+	        "Sistema de voz.",
+	        "CFTV."
+	      ]
+	    }
+	  },
+	  { 
+	    "title": "Automação de casas", 
+	    "icon": "assets/images/tablet.svg",
+	    "modal": {
+	      "id": 3,
+	      "title": "Automação", 
+	      "content": [
+	        "Automação residencial cabeada e sem fio.",
+	        "Automação predial cabeada.",
+	        "Automação industrial."
+	      ]
+	    }
+	  },
+	  { 
+	    "title": "Eficiência energética", 
+	    "icon": "assets/images/line-chart.svg",
+	    "modal": {
+	      "id": 4,
+	      "title": "Eficiência energética", 
+	      "content": [
+	        "Análise de instalação existente.",
+	        "Estudos para novos projetos.",
+	        "Integração com novas tecnologias."
+	      ]
+	    }
+	  },
+	  { 
+	    "title": "Serviços de instalação", 
+	    "icon": "assets/images/working-man.svg",
+	    "modal": {
+	      "id": 5,
+	      "title": "Serviços de instalação", 
+	      "content": [
+	        "Serviços de instalação elétrica predial.",
+	        "Serviços de instalação elétrica comercial.",
+	        "Serviços de instalação de máquinas e equipamentos."
+	      ]
+	    }
+	  },
+	  { 
+	    "title": "Outros serviços", 
+	    "icon": "assets/images/report.svg",
+	    "modal": {
+	      "id": 6,
+	      "title": "Outros serviços", 
+	      "content": [
+	        "Vistoria.",
+	        "Consultoria.",
+	        "Laudo técnico.",
+	        "Parecer técnico.",
+	        "Perícia.",
+	        "Estudo de viabilidade técnica e econômica."
+	      ]
+	    }
+	  }
+	],
+	"clients": [
+    {
+      "title": "Petrobras",
+      "img": "/assets/images/logo-petrobras.png",
+      "link": "http://www.petrobras.com.br/"
+    },
+    {
+      "title": "Isadora Cabral Arquitetura",
+      "img": "/assets/images/logo-isadora-cabral-arquitetura.png",
+      "link": "http://isadoracabralarquitetura.com.br/"
+    },
+    {
+      "title": "ADKL",
+      "img": "/assets/images/logo-adkl.png",
+      "link": "http://www.adkl.com.br/"
+    },
+    {
+      "title": "HOPE",
+      "img": "/assets/images/logo-hope.png",
+      "link": "http://www.hopeservicos.com.br/"
+    },
+    {
+      "title": "STIL",
+      "img": "/assets/images/logo-stil.png",
+      "link": "http://www.stilrj.com.br/"
+    },
+    {
+      "title": "ONS",
+      "img": "/assets/images/logo-ons.png",
+      "link": "http://www.ons.org.br/"
+    },
+    {
+      "title": "OTZ",
+      "img": "/assets/images/logo-otz.png",
+      "link": "http://www.otzengenharia.com/"
+    }
+
+  ],
+	"footer": [
+		"Entre em contato conosco e faça seu orçamento.",
+		"Telefone: +55 21 97262-3355",
+		"E-mail: contato@rpower.com.br"
+	]
+}

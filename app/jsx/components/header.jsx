@@ -9,12 +9,7 @@ const Header = React.createClass({
 		return {
 			windowSize: this.props.windowSize,
 			headerOpen: false,
-			menuItems: [
-				{ link: '#who-we-are', text: 'Quem Somos' },
-				{ link: '#services', text: 'Serviços' },
-				{ link: '#clients', text: 'Clientes' },
-				{ link: '#contact', text: 'Contato' }
-			]
+			menuItems: this.props.content.menuItems
 		}
 	},
 

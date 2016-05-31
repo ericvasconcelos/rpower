@@ -16,7 +16,7 @@ var gulp = require('gulp'),
   clean = require('gulp-clean');
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass', 'jsx', 'html'], function() {
+gulp.task('serve', ['content', 'sass', 'jsx', 'html'], function() {
 
   browserSync.init({
     server: './dist'
@@ -27,6 +27,7 @@ gulp.task('serve', ['sass', 'jsx', 'html'], function() {
   gulp.watch('./app/sass/**/*.scss', ['sass']);
   gulp.watch('./app/*.html', ['html']);
   gulp.watch('./dist/*.html').on('change', browserSync.reload);
+  gulp.watch('./app/content/*', ['content']);
 });
 
 gulp.task('sass', function() {
@@ -52,6 +53,11 @@ gulp.task('clean', function () {
 gulp.task('assets', ['clean'], function() {
   return gulp.src('./app/assets/**/*')
     .pipe(gulp.dest('./dist/assets'));
+});
+
+gulp.task('content', function() {
+  return gulp.src('./app/content/**/*')
+    .pipe(gulp.dest('./dist/content'));
 });
 
 gulp.task('jsx', function () {
